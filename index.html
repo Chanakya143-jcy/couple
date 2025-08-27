@@ -6,102 +6,82 @@
   <title>For My Loving Person</title>
   <style>
     :root{
-      --bg1: #2b0a24;
-      --bg2: #5c1a44;
-      --card: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      --accent: #ff4d6d;
-      --accent-2: #ffafbd;
-      --text: #fff0f5;
+      --bg1: #1b0a2a;
+      --bg2: #5a1846;
+      --card: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      --accent: #ff4e78;
+      --accent-2: #ffc371;
+      --text: #fff3f7;
     }
     *{box-sizing:border-box}
     html,body{
-      height:100%;
-      margin:0;
-      font-family:"Poppins",Segoe UI,system-ui,Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,107,138,0.12), transparent),
+      height:100%;margin:0;font-family:'Segoe UI',sans-serif;
+      background: radial-gradient(1200px 600px at 20% 20%, rgba(255,78,120,0.1), transparent), 
                   linear-gradient(135deg,var(--bg1),var(--bg2));
       color:var(--text);
     }
     .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:36px}
     .card{
-      width:100%;max-width:720px;background:var(--card);border-radius:20px;padding:30px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+      width:100%;max-width:720px;background:var(--card);border-radius:20px;padding:28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
-      text-align:center;
-      backdrop-filter: blur(10px);
+      text-align:center; backdrop-filter: blur(10px);
     }
-    .header{display:flex;gap:14px;align-items:center;justify-content:center;margin-bottom:10px}
+    .header{display:flex;gap:14px;align-items:center;justify-content:center;margin-bottom:6px}
     .avatar{
-      width:90px;height:90px;border-radius:50%;background:linear-gradient(120deg,var(--accent),var(--accent-2));
-      display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:32px;
-      box-shadow:0 8px 30px rgba(255,77,109,0.3);
+      width:84px;height:84px;border-radius:50%;background:linear-gradient(120deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:30px;
+      box-shadow:0 8px 30px rgba(255,78,120,0.3); animation: pulse 2s infinite;
     }
+    @keyframes pulse {0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
     h1{margin:0;font-size:clamp(22px,4vw,34px);letter-spacing:0.6px}
-    p.lead{margin:6px 0 20px;color:rgba(255,230,240,0.9)}
-    .hearts{display:inline-flex;gap:10px;margin-bottom:20px}
-    .heart{width:30px;height:30px;background:var(--accent);position:relative;transform:rotate(-45deg);
-      animation: float 3s ease-in-out infinite; box-shadow:0 0 20px rgba(255,77,109,0.6);
+    p.lead{margin:6px 0 18px;color:rgba(255,220,230,0.9)}
+    .hearts{display:inline-flex;gap:6px;margin-bottom:18px}
+    .heart{width:28px;height:28px;border-radius:6px;background:var(--accent);transform:rotate(-20deg);position:relative;display:inline-block;
+      animation: float 3s ease-in-out infinite;
     }
     .heart:before,.heart:after{
-      content:"";position:absolute;width:30px;height:30px;border-radius:50%;background:var(--accent);
+      content:"";position:absolute;width:28px;height:28px;border-radius:50%;background:var(--accent);
     }
-    .heart:before{top:-15px;left:0}
-    .heart:after{left:15px;top:0}
-    .heart:nth-child(2){animation-delay:.3s;transform:scale(.9) rotate(-45deg)}
-    .heart:nth-child(3){animation-delay:.6s;transform:scale(.8) rotate(-45deg)}
-    @keyframes float{
-      0%{transform:translateY(0) rotate(-45deg)}
-      50%{transform:translateY(-12px) rotate(-45deg)}
-      100%{transform:translateY(0) rotate(-45deg)}
-    }
+    .heart:before{left:-14px;top:0}
+    .heart:after{left:14px;top:0}
+    .heart:nth-child(2){transform:scale(.9) rotate(-15deg); animation-delay: .2s}
+    .heart:nth-child(3){transform:scale(.8) rotate(-10deg); animation-delay: .4s}
+    @keyframes float{0%{transform:translateY(0) rotate(-20deg)}50%{transform:translateY(-10px) rotate(-20deg)}100%{transform:translateY(0) rotate(-20deg)}}
 
     .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border-radius:14px;padding:20px;border:1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.06);
       margin:12px auto 0;max-width:640px;
     }
 
     .revealBtn{
-      display:inline-block;margin-top:12px;padding:12px 20px;border-radius:12px;border:none;
-      background:linear-gradient(90deg,var(--accent),#ff758c);
-      color:#fff;font-weight:700;cursor:pointer;font-size:16px;
-      box-shadow:0 12px 30px rgba(255,77,109,0.25);
-      transition:transform .12s ease,box-shadow .2s ease;
+      display:inline-block;margin-top:12px;padding:10px 18px;border-radius:10px;border:none;
+      background:linear-gradient(90deg,var(--accent),#ff7f99);
+      color:#fff;font-weight:700;cursor:pointer;font-size:15px;box-shadow:0 12px 30px rgba(255,78,120,0.25);
+      transition:transform .12s ease;
     }
-    .revealBtn:hover{box-shadow:0 14px 40px rgba(255,77,109,0.35)}
-    .revealBtn:active{transform:translateY(1px) scale(.98)}
+    .revealBtn:active{transform:translateY(1px) scale(.996)}
 
     .message{
-      margin:16px 0 6px;padding:16px;border-radius:12px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.05); color:#fff; font-size:17px; line-height:1.55;
+      margin:16px 0 6px;padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.05); color: #fff; font-size:16px; line-height:1.55;
       display:none; white-space:pre-wrap; text-align:left;
     }
 
-    .signature{margin-top:10px;color:rgba(255,235,240,0.9);font-weight:600}
+    .signature{margin-top:10px;color:rgba(255,235,240,0.85);font-weight:600;text-align:right}
 
-    footer{margin-top:18px;color:rgba(255,235,240,0.7);font-size:13px}
-
-    /* small devices */
-    @media (max-width:520px){
-      .avatar{width:70px;height:70px;font-size:26px}
-      .card{padding:20px}
-    }
+    footer{margin-top:18px;color:rgba(230,230,245,0.6);font-size:13px}
   </style>
 </head>
 <body>
-  <!-- Romantic background music -->
-  <audio id="bgMusic" autoplay loop hidden>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-  </audio>
-
   <div class="wrap">
     <div class="card" role="main" aria-labelledby="title">
       <div class="header">
-        <div class="avatar" aria-hidden="true">❤️</div>
+        <div class="avatar" aria-hidden="true">💖</div>
         <div>
           <h1 id="title">For <span id="theirName">Samreen</span></h1>
-          <p class="lead">A little page to show how much you mean to me — open the message when your heart is ready 💕</p>
+          <p class="lead">Every heartbeat of mine whispers your name 💕</p>
         </div>
       </div>
 
@@ -118,36 +98,51 @@
           <p>
 Hey <strong id="msgName">Samreen</strong> —  
 
-From the moment I met you, the ordinary became magical.  
-I promise to stand by you, love you endlessly, and treasure every moment we share.  
+Since the day you came into my life, every moment has turned into magic.  
+Your smile is my sunshine, your voice is my favorite melody, and your presence makes even the dullest days beautiful.  
 
-You are my today and all of my tomorrows.  
+I want to walk with you in the rain, laugh with you under the stars, and create endless stories together.  
+Forever isn’t long enough with you. 💞
           </p>
+
           <p class="signature">— <span id="myName">Chanakya Yadav</span></p>
         </div>
       </div>
+
+      <footer>
+        Made with 💕 and endless care
+      </footer>
     </div>
   </div>
+
+  <!-- Romantic Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <script>
     const btn = document.getElementById('reveal');
     const msg = document.getElementById('message');
+    const music = document.getElementById('bgMusic');
+    let isShown = false;
 
     btn.addEventListener('click', () => {
-      if (msg.style.display === 'block') {
+      if (isShown) {
         msg.style.display = 'none';
         btn.textContent = 'Open my message';
-        return;
+        music.pause();  // stop music when hidden
+      } else {
+        msg.style.display = 'block';
+        btn.textContent = 'Hide message';
+        music.play();   // start music when revealed
+        msg.scrollIntoView({behavior: 'smooth', block: 'center'});
       }
-      msg.style.display = 'block';
-      btn.textContent = 'Hide message';
-      msg.scrollIntoView({behavior: 'smooth', block: 'center'});
+      isShown = !isShown;
     });
 
-    function getParam(name){ 
-      const url = new URL(window.location.href); 
-      return url.searchParams.get(name); 
-    }
+    // URL personalization
+    function getParam(name){ const url = new URL(window.location.href); return url.searchParams.get(name); }
     const to = getParam('to');
     const from = getParam('from');
     if (to) {
