@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For My Loving Person</title>
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #3b185f;
+      --card: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      --accent: #ff6b8a;
+      --accent-2: #ffd166;
+      --text: #f7f7fb;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,Segoe UI,system-ui,Arial; background: radial-gradient(1200px 600px at 10% 10%, rgba(255,107,138,0.08), transparent), linear-gradient(135deg,var(--bg1),var(--bg2)); color:var(--text)}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:36px}
+    .card{
+      width:100%;max-width:720px;background:var(--card);border-radius:18px;padding:28px;
+      box-shadow: 0 20px 50px rgba(5,7,17,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align:center;
+    }
+    .header{display:flex;gap:14px;align-items:center;justify-content:center;margin-bottom:6px}
+    .avatar{
+      width:84px;height:84px;border-radius:50%;background:linear-gradient(120deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#071023;font-size:30px;box-shadow:0 8px 30px rgba(255,107,138,0.14);
+    }
+    h1{margin:0;font-size:clamp(20px,4vw,32px);letter-spacing:0.6px}
+    p.lead{margin:6px 0 18px;color:rgba(230,230,245,0.85)}
+    .hearts{display:inline-flex;gap:6px;margin-bottom:18px}
+    .heart{width:28px;height:28px;border-radius:6px;background:var(--accent);transform:rotate(-20deg);position:relative;display:inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+    .heart:before,.heart:after{
+      content:"";position:absolute;width:28px;height:28px;border-radius:50%;background:var(--accent);
+    }
+    .heart:before{left:-14px;top:0}
+    .heart:after{left:14px;top:0}
+    .heart:nth-child(2){transform:scale(.9) rotate(-15deg); animation-delay: .2s}
+    .heart:nth-child(3){transform:scale(.8) rotate(-10deg); animation-delay: .4s}
+    @keyframes float{0%{transform:translateY(0) rotate(-20deg)}50%{transform:translateY(-10px) rotate(-20deg)}100%{transform:translateY(0) rotate(-20deg)}}
+
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.04);
+      margin:12px auto 0;max-width:640px;
+    }
+
+    .revealBtn{
+      display:inline-block;margin-top:12px;padding:10px 18px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),#ff8fa3);
+      color:#071023;font-weight:700;cursor:pointer;font-size:15px;box-shadow:0 12px 30px rgba(255,107,138,0.18);
+      transition:transform .12s ease;
+    }
+    .revealBtn:active{transform:translateY(1px) scale(.996)}
+
+    .message{
+      margin:16px 0 6px;padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03); color: #fff; font-size:16px; line-height:1.45;
+      display:none; white-space:pre-wrap; text-align:left;
+    }
+
+    .signature{margin-top:10px;color:rgba(240,240,255,0.8);font-weight:600}
+
+    footer{margin-top:18px;color:rgba(230,230,245,0.6);font-size:13px}
+
+    /* small devices */
+    @media (max-width:520px){
+      .avatar{width:66px;height:66px;font-size:24px}
+      .card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="title">
+      <div class="header">
+        <div class="avatar" aria-hidden="true">💗</div>
+        <div>
+          <h1 id="title">For <span id="theirName">Samreen</span></h1>
+          <p class="lead">A tiny page to tell you how much you're loved — open the message when you're ready ♥️</p>
+        </div>
+      </div>
+
+      <div class="hearts" aria-hidden="true">
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+      </div>
+
+      <div class="panel" id="panel">
+        <button class="revealBtn" id="reveal">Open my message</button>
+
+        <div class="message" id="message">
+          <!-- Customize the message below -->
+          <p>
+Hey <strong id="msgName">Samreen</strong> —  
+
+From the moment I met you, the ordinary became beautiful. But today It was totally changed.
+
+Also I promise to be with you, to grow with you, and to treasure every ordinary day we share. Thank you for being you.
+          </p>
+
+          <p class="signature">— <span id="myName">Chanakya Yadav</span></p>
+        </div>
+      </div>
+
+      <footer>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Small script to reveal message and allow quick personalization via URL params
+    const btn = document.getElementById('reveal');
+    const msg = document.getElementById('message');
+
+    btn.addEventListener('click', () => {
+      if (msg.style.display === 'block') {
+        msg.style.display = 'none';
+        btn.textContent = 'Open my message';
+        return;
+      }
+      msg.style.display = 'block';
+      btn.textContent = 'Hide message';
+      msg.scrollIntoView({behavior: 'smooth', block: 'center'});
+    });
+
+    // Read URL params to personalize without editing file
+    // Example: love-card.html?to=Priya&from=Ravi
+    function getParam(name){ const url = new URL(window.location.href); return url.searchParams.get(name); }
+    const to = getParam('to');
+    const from = getParam('from');
+    if (to) {
+      document.getElementById('theirName').textContent = to;
+      document.getElementById('msgName').textContent = to;
+    }
+    if (from) {
+      document.getElementById('myName').textContent = from;
+    }
+  </script>
+</body>
+</html>
